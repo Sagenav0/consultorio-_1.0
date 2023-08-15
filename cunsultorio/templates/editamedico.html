@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar los datos de un medico</title>
+</head>
+<body>
+    <form action="/actualizamedico" method="post" enctype="multipart/form-data">
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h1>Edicion de medico</h1>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Datos del medico</h3>
+                <p class="card-text">
+
+                    <div class="form-group">
+                        <label for="txtId">ID:{{med[0]}}</label><br>
+                        <input id="txtId" hidden value="{{med[0]}}" class="form-control" type="text" name="txtId">
+                    </div><br>
+
+                    <div class="form-group">
+                        <label for="txtNombre">Nombre</label><br>
+                        <input id="txtNombre" value="{{med[1]}}" class="form-control" type="text" name="txtNombre">
+                    </div><br>
+
+                    <div class="form-group">
+                        <label for="txtEspecialidad">Especialidad</label><br>
+                        <input id="txtEspecialidad" value="{{med[2]}}" class="form-control" type="text" name="txtEspecialidad">
+                    </div><br>
+
+                    <div class="form-group">
+                        <label for="txtFoto">Foto</label><br>
+                        <img class="img-thumbnail" width="100" src="/uploads/{{med[3]}}" alt="">
+                        <input id="txtFoto" class="form-control" type="file" name="txtFoto">
+                    </div><br>
+
+                    <div class="form-group">
+                        <input  type="submit" class="btn btn-success" value="Guardar" >
+                        <a href="{{url_for('medicos')}}" class="btn btn-primary">Regresar</a>
+                    </div>
+
+                </p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Medicos</title>
+</head>
+<body>
+    <a href="/agregamedico">Ingresar un nuevo Médico</a>
+    <br><br>
+    <table >
+        <thead>
+            <tr>
+                <th>Id Médico</th>
+                <th>Nombre</th>
+                <th>Especialidad</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for med in res%}
+            <tr>
+                <td>{{med [0]}}</td>
+
+                <td>{{med [1]}}</td>
+                
+                <td>{{med [2]}}</td>
+
+                <td><img class="file" width="100px" src="uploads/{{med[3]}}" alt="Foto del medico"></td>
+
+                <td><a href="/editamed/{{med[0]}}">Editar</a></td>
+                <td><a onclick="return confirm('¿seguro quiere eliminar a este médico?')" href="/borramed/{{med[0]}}">Borrar</a></td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
